@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct CrewMember: Codable {
+public struct CrewMember: Codable, Identifiable {
+    public let id = UUID()
     public let job: String
     public let person: Person?
     public let movie: TraktMovie?

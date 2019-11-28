@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktTrendingComment: Codable {
+public struct TraktTrendingComment: Codable, Identifiable {
+    public let id = UUID()
     public let type: String
     public let comment: Comment
     public let movie: TraktMovie?

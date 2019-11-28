@@ -9,6 +9,7 @@
 import Foundation
 
 public struct CastAndCrew {
+    public let id = UUID()
     public let cast: [CastMember]?
     public let directors: [CrewMember]?
     public let writers: [CrewMember]?

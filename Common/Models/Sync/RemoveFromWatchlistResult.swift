@@ -8,22 +8,25 @@
 
 import Foundation
 
-public struct RemoveFromWatchlistResult: Codable {
-    let deleted: Deleted
+public struct RemoveFromWatchlistResult: Codable, Identifiable {
+    public let id = UUID()
+    public let deleted: Deleted
 //    let notFound: NotFound
 
-    public struct Deleted: Codable {
-        let movies: Int
-        let shows: Int
-        let seasons: Int
-        let episodes: Int
+    public struct Deleted: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: Int
+        public let shows: Int
+        public let seasons: Int
+        public let episodes: Int
     }
     
-    public struct NotFound: Codable {
-        let movies: [ID]
-        let shows: [ID]
-        let seasons: [ID]
-        let episodes: [ID]
+    public struct NotFound: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: [TraktID]
+        public let shows: [TraktID]
+        public let seasons: [TraktID]
+        public let episodes: [TraktID]
     }
     
     enum CodingKeys: String, CodingKey {

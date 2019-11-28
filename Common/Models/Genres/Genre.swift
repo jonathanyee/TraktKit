@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct Genres: Codable {
+public struct Genres: Codable, Identifiable {
+    public let id = UUID()
     public let name: String
     public let slug: String
 }

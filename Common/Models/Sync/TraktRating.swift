@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktRating: Codable {
+public struct TraktRating: Codable, Identifiable {
+    public let id = UUID()
     public var ratedAt: Date
     public var rating: Int
     

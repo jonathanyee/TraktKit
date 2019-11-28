@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktWatching: Codable {
+public struct TraktWatching: Codable, Identifiable {
+    public let id = UUID()
     public let expiresAt: Date
     public let startedAt: Date
     public let action: String

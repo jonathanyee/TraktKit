@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct Update: Codable {
+public struct Update: Codable, Identifiable {
+    public let id = UUID()
     public let updatedAt: Date
     public let movie: TraktMovie?
     public let show: TraktShow?

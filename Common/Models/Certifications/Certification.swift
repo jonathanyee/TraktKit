@@ -8,16 +8,18 @@
 
 import Foundation
 
-public struct Certifications: Codable {
-    let us: [Certification]
+public struct Certifications: Codable, Identifiable {
+    public let id = UUID()
+    public let us: [Certification]
     
     enum CodingKeys: String, CodingKey {
         case us
     }
     
-    struct Certification: Codable {
-        let name: String
-        let slug: String
-        let description: String
+    public struct Certification: Codable, Identifiable {
+        public let id = UUID()
+        public let name: String
+        public let slug: String
+        public let description: String
     }
 }

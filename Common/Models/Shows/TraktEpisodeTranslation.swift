@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktEpisodeTranslation: Codable {
+public struct TraktEpisodeTranslation: Codable, Identifiable {
+    public let id = UUID()
     public let title: String
     public let overview: String
     public let language: String

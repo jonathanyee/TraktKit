@@ -8,9 +8,10 @@
 
 import Foundation
 
-public struct FollowUserResult: Codable {
-    let approvedAt: Date
-    let user: User
+public struct FollowUserResult: Codable, Identifiable {
+    public let id = UUID()
+    public let approvedAt: Date
+    public let user: User
     
     enum CodingKeys: String, CodingKey {
         case approvedAt = "approved_at"

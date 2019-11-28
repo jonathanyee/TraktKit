@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktAttachedMediaItem: Codable {
+public struct TraktAttachedMediaItem: Codable, Identifiable {
+    public let id = UUID()
     public let type: String
     public let movie: TraktMovie?
     public let show: TraktShow?

@@ -8,21 +8,23 @@
 
 import Foundation
 
-public struct HideItemResult: Codable {
-    
+public struct HideItemResult: Codable, Identifiable {
+    public let id = UUID()
     let added: Added
 //    let notFound: NotFound
 
-    public struct Added: Codable {
-        let movies: Int
-        let shows: Int
-        let seasons: Int
+    public struct Added: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: Int
+        public let shows: Int
+        public let seasons: Int
     }
     
-    public struct NotFound: Codable {
-        let movies: [ID]
-        let shows: [ID]
-        let seasons: [ID]
+    public struct NotFound: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: [TraktID]
+        public let shows: [TraktID]
+        public let seasons: [TraktID]
         
         enum CodingKeys: String, CodingKey {
             case movies

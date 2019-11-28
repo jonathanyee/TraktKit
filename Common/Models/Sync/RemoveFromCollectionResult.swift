@@ -8,20 +8,23 @@
 
 import Foundation
 
-public struct RemoveFromCollectionResult: Codable {
+public struct RemoveFromCollectionResult: Codable, Identifiable {
+    public let id = UUID()
     public let deleted: deleted
 //    public let notFound: NotFound
 
-    public struct deleted: Codable {
-        let movies: Int
-        let episodes: Int
+    public struct deleted: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: Int
+        public let episodes: Int
     }
     
-    public struct NotFound: Codable {
-        let movies: [ID]
-        let shows: [ID]
-        let seasons: [ID]
-        let episodes: [ID]
+    public struct NotFound: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: [TraktID]
+        public let shows: [TraktID]
+        public let seasons: [TraktID]
+        public let episodes: [TraktID]
     }
     
     enum CodingKeys: String, CodingKey {

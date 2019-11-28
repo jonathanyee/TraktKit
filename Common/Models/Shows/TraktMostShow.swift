@@ -9,8 +9,8 @@
 import Foundation
 
 /// Used for most played, watched, and collected shows
-public struct TraktMostShow: Codable {
-    
+public struct TraktMostShow: Codable, Identifiable {
+    public let id = UUID()
     // Extended: Min
     public let watcherCount: Int
     public let playCount: Int

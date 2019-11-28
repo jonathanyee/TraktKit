@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct HiddenItem: Codable {
+public struct HiddenItem: Codable, Identifiable {
+    public let id = UUID()
     public let hiddenAt: Date
     public let type: String
     

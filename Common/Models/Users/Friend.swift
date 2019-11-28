@@ -8,9 +8,10 @@
 
 import Foundation
 
-public struct Friend: Codable {
-    let friendsAt: Date
-    let user: User
+public struct Friend: Codable, Identifiable {
+    public let id = UUID()
+    public let friendsAt: Date
+    public let user: User
     
     enum CodingKeys: String, CodingKey {
         case friendsAt = "friends_at"

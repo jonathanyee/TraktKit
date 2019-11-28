@@ -8,12 +8,14 @@
 
 import Foundation
 
-public struct RatingDistribution: Codable {
+public struct RatingDistribution: Codable, Identifiable {
+    public let id = UUID()
     public let rating: Double
     public let votes: Int
     public let distribution: Distribution
     
-    public struct Distribution: Codable {
+    public struct Distribution: Codable, Identifiable {
+        public let id = UUID()
         public let one: Int
         public let two: Int
         public let three: Int

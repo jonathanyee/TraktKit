@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct TraktCollectedItem: Codable {
-    
+public struct TraktCollectedItem: Codable, Identifiable {
+    public let id = UUID()
     public var lastCollectedAt: Date
     public let lastUpdatedAt: Date
     
@@ -64,7 +64,8 @@ public struct TraktCollectedItem: Codable {
         }
     }
     
-    public struct Metadata: Codable {
+    public struct Metadata: Codable, Identifiable {
+        public let id = UUID()
         public let mediaType: MediaType?
         public let resolution: Resolution?
         public let hdr: HDR?
@@ -150,15 +151,15 @@ public struct TraktCollectedItem: Codable {
     }
 }
 
-public struct TraktCollectedSeason: Codable {
-    
+public struct TraktCollectedSeason: Codable, Identifiable {
+    public let id = UUID()
     /// Season number
     public var number: Int
     public var episodes: [TraktCollectedEpisode]
 }
 
-public struct TraktCollectedEpisode: Codable {
-    
+public struct TraktCollectedEpisode: Codable, Identifiable {
+    public let id = UUID()
     public var number: Int
     public var collectedAt: Date
     public var metadata: TraktCollectedItem.Metadata?

@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktSearchResult: Codable {
+public struct TraktSearchResult: Codable, Identifiable {
+    public let id = UUID()
     public let type: String // Can be movie, show, episode, person, list
     public let score: Double?
     

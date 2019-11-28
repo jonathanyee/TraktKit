@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct TraktTrendingShow: Codable {
-    
+public struct TraktTrendingShow: Codable, Identifiable {
+    public let id = UUID()
     // Extended: Min
     public let watchers: Int
     public let show: TraktShow

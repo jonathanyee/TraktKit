@@ -8,22 +8,25 @@
 
 import Foundation
 
-public struct AddToCollectionResult: Codable {
-    let added: Added
-    let updated: Added
-    let existing: Added
+public struct AddToCollectionResult: Codable, Identifiable {
+    public let id = UUID()
+    public let added: Added
+    public let updated: Added
+    public let existing: Added
 //    let notFound: NotFound
 
-    public struct Added: Codable {
-        let movies: Int
-        let episodes: Int
+    public struct Added: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: Int
+        public let episodes: Int
     }
     
-    public struct NotFound: Codable {
-        let movies: [ID]
-        let shows: [ID]
-        let seasons: [ID]
-        let episodes: [ID]
+    public struct NotFound: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: [TraktID]
+        public let shows: [TraktID]
+        public let seasons: [TraktID]
+        public let episodes: [TraktID]
     }
     
     enum CodingKeys: String, CodingKey {

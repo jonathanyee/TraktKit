@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct Like: Codable {
+public struct Like: Codable, Identifiable {
+    public let id = UUID()
     public let likedAt: Date
     public let type: LikeType
     public let list: TraktList?

@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct ShowCollectionProgress: Codable {
-    
+public struct ShowCollectionProgress: Codable, Identifiable {
+    public let id = UUID()
     public let aired: Int
     public let completed: Int
     public let lastCollectedAt: Date
@@ -26,17 +26,19 @@ public struct ShowCollectionProgress: Codable {
         case nextEpisode = "next_episode"
     }
     
-    public struct CollectedSeason: Codable {
-        let number: Int
-        let aired: Int
-        let completed: Int
-        let episodes: [CollectedEpisode]
+    public struct CollectedSeason: Codable, Identifiable {
+        public let id = UUID()
+        public let number: Int
+        public let aired: Int
+        public let completed: Int
+        public let episodes: [CollectedEpisode]
     }
     
-    public struct CollectedEpisode: Codable {
-        let number: Int
-        let completed: Bool
-        let collectedAt: Date?
+    public struct CollectedEpisode: Codable, Identifiable {
+        public let id = UUID()
+        public let number: Int
+        public let completed: Bool
+        public let collectedAt: Date?
         
         enum CodingKeys: String, CodingKey {
             case number

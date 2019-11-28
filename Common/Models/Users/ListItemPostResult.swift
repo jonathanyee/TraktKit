@@ -8,25 +8,28 @@
 
 import Foundation
 
-public struct ListItemPostResult: Codable {
-    let added: Added
-    let existing: Added
+public struct ListItemPostResult: Codable, Identifiable {
+    public let id = UUID()
+    public let added: Added
+    public let existing: Added
 //    let notFound: NotFound
 
-    public struct Added: Codable {
-        let movies: Int
-        let shows: Int
-        let seasons: Int
-        let episodes: Int
-        let people: Int
+    public struct Added: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: Int
+        public let shows: Int
+        public let seasons: Int
+        public let episodes: Int
+        public let people: Int
     }
     
-    public struct NotFound: Codable {
-        let movies: [ID]
-        let shows: [ID]
-        let seasons: [ID]
-        let episodes: [ID]
-        let people: [ID]
+    public struct NotFound: Codable, Identifiable {
+        public let id = UUID()
+        public let movies: [TraktID]
+        public let shows: [TraktID]
+        public let seasons: [TraktID]
+        public let episodes: [TraktID]
+        public let people: [TraktID]
     }
     
     enum CodingKeys: String, CodingKey {

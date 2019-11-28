@@ -8,10 +8,11 @@
 import Foundation
 
 // Actor/Actress/Crew member
-public struct Person: Codable {
+public struct Person: Codable, Identifiable {
+    public let id = UUID()
     // Extended: Min
     public let name: String
-    public let ids: ID
+    public let ids: TraktID
     
     // Extended: Full
     public let biography: String?
@@ -34,7 +35,7 @@ public struct Person: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: CodingKeys.name)
-        ids = try container.decode(ID.self, forKey: CodingKeys.ids)
+        ids = try container.decode(TraktID.self, forKey: CodingKeys.ids)
         biography = try container.decodeIfPresent(String.self, forKey: CodingKeys.biography)
         birthday = try container.decodeIfPresent(Date.self, forKey: CodingKeys.birthday)
         death = try container.decodeIfPresent(Date.self, forKey: CodingKeys.death)

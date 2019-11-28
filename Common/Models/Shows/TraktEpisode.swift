@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct TraktEpisode: Codable {
-    
+public struct TraktEpisode: Codable, Identifiable {
+    public let id = UUID()
     // Extended: Min
     public let season: Int
     public let number: Int

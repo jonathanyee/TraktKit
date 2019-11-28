@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct CalendarMovie: Codable {
+public struct CalendarMovie: Codable, Identifiable {
+    public let id = UUID()
     public let released: Date
     public let movie: TraktMovie
 }

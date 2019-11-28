@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktBoxOfficeMovie: Codable {
+public struct TraktBoxOfficeMovie: Codable, Identifiable {
+    public let id = UUID()
     // Extended: Min
     public let revenue: Int
     public let movie: TraktMovie

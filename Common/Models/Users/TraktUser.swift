@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct User: Codable {
-    
+public struct User: Codable, Identifiable {
+    public let id = UUID()
     // Min
     public let username: String?
     public let isPrivate: Bool

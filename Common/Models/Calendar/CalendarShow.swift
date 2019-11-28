@@ -8,10 +8,11 @@
 
 import Foundation
 
-public struct CalendarShow: Codable {
-    let firstAired: Date
-    let episode: TraktEpisode
-    let show: TraktShow
+public struct CalendarShow: Codable, Identifiable {
+    public let id = UUID()
+    public let firstAired: Date
+    public let episode: TraktEpisode
+    public let show: TraktShow
     
     enum CodingKeys: String, CodingKey {
         case firstAired = "first_aired"

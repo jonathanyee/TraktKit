@@ -8,18 +8,19 @@
 
 import Foundation
 
-public struct Airs: Codable {
+public struct Airs: Codable, Identifiable {
+    public let id = UUID()
     public let day: String?
     public let time: String?
     public let timezone: String?
 }
 
-public struct TraktShow: Codable {
-    
+public struct TraktShow: Codable, Identifiable {
+    public let id = UUID()
     // Extended: Min
     public let title: String
     public let year: Int?
-    public let ids: ID
+    public let ids: TraktID
     
     // Extended: Full
     public let overview: String?
@@ -68,7 +69,7 @@ public struct TraktShow: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try container.decode(String.self, forKey: CodingKeys.title)
         year = try container.decodeIfPresent(Int.self, forKey: CodingKeys.year)
-        ids = try container.decode(ID.self, forKey: CodingKeys.ids)
+        ids = try container.decode(TraktID.self, forKey: CodingKeys.ids)
         
         overview = try container.decodeIfPresent(String.self, forKey: CodingKeys.overview)
         firstAired = try container.decodeIfPresent(Date.self, forKey: CodingKeys.firstAired)

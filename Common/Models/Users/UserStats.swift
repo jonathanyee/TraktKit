@@ -8,55 +8,63 @@
 
 import Foundation
 
-public struct UserStats: Codable {
-    let movies: Movies
-    let shows: Shows
-    let seasons: Seasons
-    let episodes: Episodes
-    let network: Network
-    let ratings: UserStatsRatingsDistribution
+public struct UserStats: Codable, Identifiable {
+    public let id = UUID()
+    public let movies: Movies
+    public let shows: Shows
+    public let seasons: Seasons
+    public let episodes: Episodes
+    public let network: Network
+    public let ratings: UserStatsRatingsDistribution
     
-    public struct Movies: Codable {
-        let plays: Int
-        let watched: Int
-        let minutes: Int
-        let collected: Int
-        let ratings: Int
-        let comments: Int
+    public struct Movies: Codable, Identifiable {
+        public let id = UUID()
+        public let plays: Int
+        public let watched: Int
+        public let minutes: Int
+        public let collected: Int
+        public let ratings: Int
+        public let comments: Int
     }
     
-    public struct Shows: Codable {
-        let watched: Int
-        let collected: Int
-        let ratings: Int
-        let comments: Int
+    public struct Shows: Codable, Identifiable {
+        public let id = UUID()
+        public let watched: Int
+        public let collected: Int
+        public let ratings: Int
+        public let comments: Int
     }
     
-    public struct Seasons: Codable {
-        let ratings: Int
-        let comments: Int
+    public struct Seasons: Codable, Identifiable {
+        public let id = UUID()
+        public let ratings: Int
+        public let comments: Int
     }
     
-    public struct Episodes: Codable {
-        let plays: Int
-        let watched: Int
-        let minutes: Int
-        let collected: Int
-        let ratings: Int
-        let comments: Int
+    public struct Episodes: Codable, Identifiable {
+        public let id = UUID()
+        public let plays: Int
+        public let watched: Int
+        public let minutes: Int
+        public let collected: Int
+        public let ratings: Int
+        public let comments: Int
     }
     
-    public struct Network: Codable {
-        let friends: Int
-        let followers: Int
-        let following: Int
+    public struct Network: Codable, Identifiable {
+        public let id = UUID()
+        public let friends: Int
+        public let followers: Int
+        public let following: Int
     }
     
-    public struct UserStatsRatingsDistribution: Codable {
-        let total: Int
-        let distribution: Distribution
+    public struct UserStatsRatingsDistribution: Codable, Identifiable {
+        public let id = UUID()
+        public let total: Int
+        public let distribution: Distribution
         
-        public struct Distribution: Codable {
+        public struct Distribution: Codable, Identifiable {
+            public let id = UUID()
             public let one: Int
             public let two: Int
             public let three: Int

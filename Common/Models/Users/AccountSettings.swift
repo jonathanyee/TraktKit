@@ -8,11 +8,13 @@
 
 import Foundation
 
-public struct AccountSettings: Codable {
+public struct AccountSettings: Codable, Identifiable {
+    public let id = UUID()
     public let user: User
     public let connections: Connections
     
-    public struct Connections: Codable {
+    public struct Connections: Codable, Identifiable {
+        public let id = UUID()
         public let facebook: Bool
         public let twitter: Bool
         public let google: Bool

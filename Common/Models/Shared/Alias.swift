@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct Alias: Codable {
-    let title: String
-    let country: String
+public struct Alias: Codable, Identifiable {
+    public let id = UUID()
+    public let title: String
+    public let country: String
 }

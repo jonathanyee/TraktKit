@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct TraktListItem: Codable {
+public struct TraktListItem: Codable, Identifiable {
+    public let id = UUID()
     public let rank: Int
     public let listedAt: Date
     public let type: String
